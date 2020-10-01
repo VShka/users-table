@@ -1,0 +1,19 @@
+{
+  "name": "users-table",
+  "version": "1.0.0",
+  "description": "## Настройка архитектуры и окружения",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VShka/users-table.git"
+  },
+  "author": "Shkarupa Victor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VShka/users-table/issues"
+  },
+  "homepage": "https://github.com/VShka/users-table#readme"
+}
