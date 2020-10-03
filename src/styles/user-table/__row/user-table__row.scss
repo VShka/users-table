@@ -1,4 +1,6 @@
 .user-table__row {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
+  border: 1px solid rgb(55, 181, 165);
+  align-items: center;
 }
