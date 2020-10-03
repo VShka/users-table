@@ -1,10 +1,10 @@
 $border: 1px solid rgb(55, 181, 165);
 
 .user-table__item {
-  color: rgb(202, 212, 214);
+  color: rgb(133, 220, 238);
   border-bottom: $border;
-  border-right: $border;
   padding: 7px 17px;
+  margin: 0;
 
   &:hover {
     color: rgb(221, 144, 144);
