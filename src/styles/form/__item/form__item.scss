@@ -1,0 +1,14 @@
+@import './_add/form__item_add.scss';
+
+.form__item {
+  width: 50%;
+  border: 1px solid #07079b;
+  border-radius: 50px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgb(141, 141, 138);
+  }
+}
