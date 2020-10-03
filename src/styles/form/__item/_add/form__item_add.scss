@@ -1,5 +1,16 @@
 .form__item_add {
   font-size: 20px;
-  background: #000;
+  background: rgb(15, 15, 15);
   color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px rgb(75, 221, 56);
+    color: rgb(106, 237, 73);
+  }
+  &:active {
+    background: rgba(0, 0, 0, 0.726);
+  }
 }
