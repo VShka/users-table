@@ -46,8 +46,7 @@ module.exports = {
       canPrint: true
     }),
     new HtmlWebpackPlugin({
-      inject: false,
-      template: "./public/index.pug",
+      template: "./public/layout/main.pug",
       filename: "index.html"
     }),
     new webpack.DefinePlugin({
