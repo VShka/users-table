@@ -1,0 +1,10 @@
+.button_add {
+  width: 20%;
+  margin-bottom: 30px;
+  align-self: flex-end;
+
+  &:hover {
+    box-shadow: 0 0 10px rgb(75, 221, 56);
+    color: rgb(106, 237, 73);
+  }
+}

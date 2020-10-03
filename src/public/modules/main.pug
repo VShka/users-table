@@ -1,8 +1,9 @@
 main.content
   section.users
+    button.button.button_add Добавить пользователя
     .table.user-table
       .user-table__row 
-        for item in ['Фамилия ИО', 'Дата рождения', 'Место рождения', 'Email', 'Телефон', 'Дата регистрации', 'Последнее посещение сайта', 'Редактировать', 'Удалить']
+        for item in ['Фамилия ИО', 'Дата рождения', 'Место рождения', 'Email', 'Телефон', 'Дата регистрации', 'Последнее посещение']
           p.user-table__title= item
       .user-table__row
         p.user-table__item Шкарупа ВС
@@ -13,9 +14,9 @@ main.content
         p.user-table__item 03.10.2020
         p.user-table__item 03.10.2020
         p.user-table__item
-          button.button Редактировать
+          button.button.button_edit Редактировать
         p.user-table__item
-          button.button Удалить
+          button.button.button_delete Удалить
       .user-table__row
         p.user-table__item Шкарупа ВС
         p.user-table__item 20.12.1995
@@ -25,9 +26,9 @@ main.content
         p.user-table__item 03.10.2020
         p.user-table__item 03.10.2020
         p.user-table__item
-          button.button Редактировать
+          button.button.button_edit Редактировать
         p.user-table__item
-          button.button Удалить
+          button.button.button_delete Удалить
       .user-table__row
         p.user-table__item Шкарупа ВС
         p.user-table__item 20.12.1995
@@ -37,6 +38,6 @@ main.content
         p.user-table__item 03.10.2020
         p.user-table__item 03.10.2020
         p.user-table__item
-          button.button Редактировать
+          button.button.button_edit Редактировать
         p.user-table__item
-          button.button Удалить
+          button.button.button_delete Удалить

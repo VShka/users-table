@@ -1,13 +1,21 @@
+@import './content/content.scss';
 @import '../vendor/normalize.css';
 @import './header/header.scss';
 @import './users/users.scss';
 @import './table/table.scss';
 @import './user-table/user-table.scss';
 @import './button/button.scss';
+@import './footer/footer.scss';
 
+
+html, body {
+  height: 100%;
+}
 .wrapper {
+  display: flex;
+	flex-direction: column;
+	min-height: 100%;
   max-width: 100%;
-  text-align: center;
   color: rgb(42, 42, 42);
   background: rgb(226, 226, 226);
   margin: 0 auto;
