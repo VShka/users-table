@@ -46,7 +46,7 @@ module.exports = {
       canPrint: true
     }),
     new HtmlWebpackPlugin({
-      template: "./public/layout/main.pug",
+      template: "./public/layout/index.pug",
       filename: "index.html"
     }),
     new webpack.DefinePlugin({
