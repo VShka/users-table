@@ -1,3 +1,14 @@
-p {
-  color: green;
+@import '../vendor/normalize.css';
+@import './header/header.scss';
+@import './users/users.scss';
+@import './table/table.scss';
+@import './user-table/user-table.scss';
+
+.wrapper {
+  max-width: 90%;
+  text-align: center;
+  color: rgb(20, 20, 20);
+  background: rgb(243, 242, 240);
+  margin: 0 auto;
+  padding: 20px 0;
 }
