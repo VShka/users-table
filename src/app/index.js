@@ -1,4 +1,6 @@
-import '../styles/style.scss'
+import '../styles/style.scss';
+
+import $ from 'jquery';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
