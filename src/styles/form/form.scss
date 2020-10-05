@@ -1,8 +1,8 @@
 @import './__item/form__item.scss';
-@import './_show/form_show.scss';
+
 
 .form {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   max-width: 25%;
@@ -19,3 +19,4 @@
     box-shadow: 0 0 10px rgb(56, 174, 221);
   }
 }
+@import './_show/form_show.scss';

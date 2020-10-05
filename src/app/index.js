@@ -23,15 +23,16 @@ const openAddForm = document.querySelector('.button_add');
 
 // открытие попапов
 $('.button_add, .button_edit').on('click', function() {
-  $('.modal-fade').show();
+  $('.modal-mask').show();
+  $('.form').addClass('form_show');
 })
 
 // $('.button_edit').on('click', () => {
-//   $('.modal-fade').show();
+//   $('.modal-mask').show();
 // })
 // закрытие попапов
 $(document).on('keydown', (evt) => {
   if (evt.key == "Escape") {
-    $('.modal-fade').hide();
+    $('.modal-mask').hide();
   }
 })

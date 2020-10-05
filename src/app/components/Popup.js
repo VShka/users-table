@@ -3,10 +3,10 @@ import $ from 'jquery';
 export default class Popup {
   constructor() {
     this.addButton = $('.button_add');
-    this.modalFade = $('.modal-fade');
+    this.modalMask = $('.modal-mask');
 
     // this.addBtn = document.querySelector('.button_add');
-    // this.modalFade = document.querySelector('.modal-fade');
+    // this.modalMask = document.querySelector('.modal-fade');
 
     this.setEventListener();
     // this._open();
@@ -16,10 +16,10 @@ export default class Popup {
 
   _open() {
 
-    this.modalFade.classList.add('form_show');
+    this.modalMask.classList.add('form_show');
     
     // $(this.addButton).on('click', () => {
-    //   this.modalFade.show();
+    //   this.modalMask.show();
     // })
   }
 
@@ -27,11 +27,11 @@ export default class Popup {
 
     // $(document).on('keydown', (evt) => {
     //   if (evt.keyCode == 27) {
-    //     this.modalFade.hide();
+    //     this.modalMask.hide();
     //   }
     // })
 
-    this.modalFade.classList.remove('form_show');
+    this.modalMask.classList.remove('form_show');
   }
 
   setEventListener() {

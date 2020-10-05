@@ -1,18 +1,18 @@
-@import './_close/close';
+@import './_close/modal_close';
+@import './__content/modal__content.scss';
+@import './__text/modal__text.scss';
 
 .modal {
+  display: none;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  max-width: 25%;
-  min-height: 300px;
+  max-width: 35%;
+  min-height: 100px;
   background-color: rgba(37, 47, 72, 0.8);
   border: 2px solid #ccc;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   border-radius: 20px;
-  margin: 50px auto 0;
-  padding: 3rem 0;
+  margin: 100px auto 0;
+  padding: 3rem 1rem .7rem;
   
 
   &:hover {
@@ -24,3 +24,4 @@
     height: 1.75em;
   }
 }
+@import './_show/modal_show.scss';

@@ -3,12 +3,16 @@
   cursor: pointer;
   top: 0px;
   right: 0px;
-  background: red;
+  background: rgb(194, 0, 0);
   border-bottom-left-radius: 90%;
   border-top-right-radius: 40%;
   
   &:focus {
     outline: none;
-    box-shadow: 0 0 10px rgba(14, 150, 184, 0.445)
   }
+
+  &:hover {
+    box-shadow: 0 0 10px rgb(56, 174, 221);
+  }
+
 }

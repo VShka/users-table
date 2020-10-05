@@ -1,0 +1,8 @@
+.button_confirm {
+  color: rgb(212, 212, 212);
+  background: rgb(0, 128, 0);
+
+  &:hover {
+    box-shadow: 0 0 10px rgb(56, 174, 221);
+  }
+}

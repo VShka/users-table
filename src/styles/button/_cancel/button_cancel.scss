@@ -1,0 +1,9 @@
+.button_cancel {
+  color: rgb(212, 212, 212);
+  background: rgb(179, 36, 36);
+
+
+  &:hover {
+    box-shadow: 0 0 10px rgb(56, 174, 221);
+  }
+}
