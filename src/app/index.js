@@ -7,7 +7,7 @@ import Popup from './components/Popup';
 // const openAddForm = document.querySelector('.button_add');
 const openAddForm = $('.button_add');
 const openEditForm = $('.button_edit');
-const closeEditForm = $('.modal_close');
+const closeEditForm = $('.button_close');
 const formModal = $('#modal-confirm');
 
 
