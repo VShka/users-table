@@ -17,7 +17,8 @@ export default class Popup {
   }
 
   _close() {
-    $(this.closeBtn).on('click', () => {
+    $(this.closeBtn).on('click', (evt) => {
+      evt.preventDefault();
       $(this.modal).hide();
     })
 
