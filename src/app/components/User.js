@@ -10,18 +10,21 @@ export default class User {
     
     // html разметка на pug
     const template = $(`
-      .user-table__row
-        p.user-table__item ${props.name}
-        p.user-table__item ${props.birthday}
-        p.user-table__item ${props.placeOfBirth}
-        p.user-table__item ${props.email}
-        p.user-table__item ${props.phone}
-        p.user-table__item ${props.dateReg}
-        p.user-table__item ${props.dateLastVisit}
-        p.user-table__item
-          button.button.button_edit Редактировать
-        p.user-table__item
-          button.button.button_delete Удалить
+      <div class="user-table__row">
+        <p class="user-table__item">${props.name}</p>
+        <p class="user-table__item">${props.birthday}</p>
+        <p class="user-table__item">${props.placeOfBirth}</p>
+        <p class="user-table__item">${props.email}</p>
+        <p class="user-table__item">${props.phone}</p>
+        <p class="user-table__item">${props.dateReg}</p>
+        <p class="user-table__item">${props.dateLastVisit}</p>
+        <p class="user-table__item">
+          <button class="button button_edit">Редактировать</button>
+        </p>
+        <p class="user-table__item">
+          <button class="button button_delete">Удалить</button>
+        </p>
+      </div>
     `)
 
     return template;

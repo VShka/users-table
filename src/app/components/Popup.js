@@ -12,7 +12,9 @@ export default class Popup {
 
   _open() {
     $(this.openBtn).on('click', () => {
-      $(this.modal).show();
+      if ($(this.openBtn).is(this.openBtn)) {
+        $(this.modal).show();
+      }
     })
   }
 
