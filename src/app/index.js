@@ -4,14 +4,20 @@ import $ from 'jquery';
 
 import Popup from './components/Popup';
 
-// const openAddForm = document.querySelector('.button_add');
-const openAddForm = $('.button_add');
-const openEditForm = $('.button_edit');
-const closeEditForm = $('.button_close');
-const formModal = $('#modal-confirm');
+// кнопки
+const openAddUser = $('.button_add');
+const openDeleteUser = $('.button_delete');
+const openEditUser = $('.button_edit');
+const closeModal = $('.button_close');
+//модалки
+const addModal = $('#modal-form');
+const confirmModal = $('#modal-confirm');
 
 
-const popup = new Popup(openEditForm, closeEditForm, formModal);
+const popupForm = new Popup(openAddUser, closeModal, addModal);
+const popupEdit = new Popup(openEditUser, closeModal, addModal);
+const popupConfirm = new Popup(openDeleteUser, closeModal, confirmModal);
+
 
 // import firebase from 'firebase/app';
 // import 'firebase/database';

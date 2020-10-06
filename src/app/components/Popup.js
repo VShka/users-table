@@ -7,8 +7,7 @@ export default class Popup {
     this.closeBtn = closeBtn;
     this.modal = modal;
 
-    this._open();
-    this._close();
+    this._methodsInit();
   }
 
   _open() {
@@ -27,5 +26,10 @@ export default class Popup {
         $(this.modal).hide();
       }
     })
+  }
+
+  _methodsInit() {
+    this._open();
+    this._close();
   }
 }
