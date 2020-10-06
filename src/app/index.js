@@ -3,7 +3,7 @@ import '../styles/style.scss';
 import $ from 'jquery';
 
 import Popup from './components/Popup';
-import Firebase from './components/Firebase';
+// import Firebase from './components/Firebase';
 import UserTable from './components/UserTable';
 import User from './components/User';
 
@@ -12,10 +12,11 @@ const openAddUser = $('.button_add');
 const openDeleteUser = $('.button_delete');
 const openEditUser = $('.button_edit');
 const closeModal = $('.button_close');
-const addBtn = $('.form__item_add');
+const addBtn = $('#add-user');
 const confirmBtn = $('.button_confirm');
 //модалки
-const addModal = $('#modal-form');
+const addForm = $('#modal-form');
+const editForm = $('#edit-form');
 const confirmModal = $('#modal-confirm');
 // контейнер для таблицы
 const tableContainer = $('.user-table');
@@ -31,9 +32,9 @@ const polina = {
 }
 
 // инстансы классов
-const popupForm = new Popup(openAddUser, closeModal, addModal);
-const popupEdit = new Popup(openEditUser, closeModal, addModal);
-const popupConfirm = new Popup(openDeleteUser, closeModal, confirmModal);
+const popupForm = new Popup('.button_add', openAddUser, closeModal, addForm);
+const popupEdit = new Popup('.button_edit', openEditUser, closeModal, editForm);
+const popupConfirm = new Popup('.button_delete', openDeleteUser, closeModal, confirmModal);
 
 const user = new User();
 const userTable = new UserTable(tableContainer);

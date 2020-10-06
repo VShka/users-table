@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
 export default class Popup {
-  constructor(openBtn, closeBtn, modal,) {
-
+  constructor(btnClass,openBtn, closeBtn, modal,) {
+    this.btnClass = btnClass;
     this.openBtn = openBtn;
     this.closeBtn = closeBtn;
     this.modal = modal;
@@ -11,10 +11,15 @@ export default class Popup {
   }
 
   _open() {
-    $(this.openBtn).on('click', () => {
-      if ($(this.openBtn).is(this.openBtn)) {
+    // проверка на кнопку добавления пользователя, т.к. она одна на старнице
+    if ($(this.openBtn).is('.button_add')) {
+      $(this.openBtn).on('click', () => {
         $(this.modal).show();
-      }
+      })
+    }
+    // здесь используем делегирование, так как кнопки динамически добавляются вместе с новыми пользователями
+    $('.user-table').on('click', this.btnClass, () => {
+      $(this.modal).show();
     })
   }
 
