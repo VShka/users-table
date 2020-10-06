@@ -1,47 +1,30 @@
 import $ from 'jquery';
 
 export default class Popup {
-  constructor() {
-    this.addButton = $('.button_add');
-    this.modalMask = $('.modal-mask');
+  constructor(openBtn, closeBtn, modal,) {
 
-    // this.addBtn = document.querySelector('.button_add');
-    // this.modalMask = document.querySelector('.modal-fade');
+    this.openBtn = openBtn;
+    this.closeBtn = closeBtn;
+    this.modal = modal;
 
-    this.setEventListener();
-    // this._open();
-    // this._close();
-
+    this._open();
+    this._close();
   }
 
   _open() {
-
-    this.modalMask.classList.add('form_show');
-    
-    // $(this.addButton).on('click', () => {
-    //   this.modalMask.show();
-    // })
+    $(this.openBtn).on('click', () => {
+      $(this.modal).show();
+    })
   }
 
   _close() {
-
-    // $(document).on('keydown', (evt) => {
-    //   if (evt.keyCode == 27) {
-    //     this.modalMask.hide();
-    //   }
-    // })
-
-    this.modalMask.classList.remove('form_show');
-  }
-
-  setEventListener() {
-    this.addBtn.addEventListener('click', () => {
-      this._open();
+    $(this.closeBtn).on('click', () => {
+      $(this.modal).hide();
     })
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key == "Escape") {
-        this._close();
+    $(document).on('keydown', (evt) => {
+      if (evt.key == "Escape") {
+        $(this.modal).hide();
       }
     })
   }

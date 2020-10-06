@@ -3,7 +3,6 @@
 @import './__text/modal__text.scss';
 
 .modal {
-  display: none;
   position: relative;
   max-width: 35%;
   min-height: 100px;
@@ -24,4 +23,3 @@
     height: 1.75em;
   }
 }
-@import './_show/modal_show.scss';

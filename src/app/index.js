@@ -2,10 +2,16 @@ import '../styles/style.scss';
 
 import $ from 'jquery';
 
-// import Popup from './components/Popup';
+import Popup from './components/Popup';
 
-const openAddForm = document.querySelector('.button_add');
-// const popup = new Popup();
+// const openAddForm = document.querySelector('.button_add');
+const openAddForm = $('.button_add');
+const openEditForm = $('.button_edit');
+const closeEditForm = $('.modal_close');
+const formModal = $('#modal-confirm');
+
+
+const popup = new Popup(openEditForm, closeEditForm, formModal);
 
 // import firebase from 'firebase/app';
 // import 'firebase/database';
@@ -20,19 +26,3 @@ const openAddForm = document.querySelector('.button_add');
 //   messagingSenderId: "1021217407977",
 //   appId: "1:1021217407977:web:fcb00f7ec62859050bc178"
 // });
-
-// открытие попапов
-$('.button_add, .button_edit').on('click', function() {
-  $('.modal-mask').show();
-  $('.form').addClass('form_show');
-})
-
-// $('.button_edit').on('click', () => {
-//   $('.modal-mask').show();
-// })
-// закрытие попапов
-$(document).on('keydown', (evt) => {
-  if (evt.key == "Escape") {
-    $('.modal-mask').hide();
-  }
-})
