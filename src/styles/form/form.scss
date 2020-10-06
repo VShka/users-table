@@ -2,6 +2,7 @@
 
 
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,5 +18,10 @@
 
   &:hover {
     box-shadow: 0 0 10px rgb(56, 174, 221);
+  }
+
+  svg {
+    width: 1.75em;
+    height: 1.75em;
   }
 }
