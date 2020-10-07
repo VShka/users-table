@@ -22,11 +22,11 @@ const confirmModal = $('#modal-confirm');
 const tableContainer = $('.user-table');
 
 const polina = {
-  name: 'Shkarupa PN',
+  name: 'Шкарупа ПН',
   birthday: '12.09.1995',
-  placeOfBirth: 'Vladivostok',
+  placeOfBirth: 'Краснодар',
   email: 'polina@yandex.ru',
-  phone: '788989991212',
+  phone: '788989879',
   dateReg: Date.now(),
   dateLastVisit: '05.10.2020'
 }
