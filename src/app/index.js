@@ -21,15 +21,38 @@ const confirmModal = $('#modal-confirm');
 // контейнер для таблицы
 const tableContainer = $('.user-table');
 
-const polina = {
-  name: 'Шкарупа ПН',
-  birthday: '12.09.1995',
-  placeOfBirth: 'Краснодар',
-  email: 'polina@yandex.ru',
-  phone: '788989879',
-  dateReg: Date.now(),
-  dateLastVisit: '05.10.2020'
-}
+const users = [
+  {
+    name: 'Шкарупа ПН',
+    birthday: '12.09.1995',
+    placeOfBirth: 'Краснодар',
+    placeOfBirth: 'Краснодар',
+    email: 'polina@yandex.ru',
+    phone: '788989879',
+    dateReg: Date.now(),
+    dateLastVisit: '05.10.2020'
+  },
+  {
+    name: 'Шкарупа ПН',
+    birthday: '12.09.1995',
+    placeOfBirth: 'Краснодар',
+    placeOfBirth: 'Краснодар',
+    email: 'polina@yandex.ru',
+    phone: '788989879',
+    dateReg: Date.now(),
+    dateLastVisit: '05.10.2020'
+  },
+  {
+    name: 'Шкарупа ПН',
+    birthday: '12.09.1995',
+    placeOfBirth: 'Краснодар',
+    placeOfBirth: 'Краснодар',
+    email: 'polina@yandex.ru',
+    phone: '788989879',
+    dateReg: Date.now(),
+    dateLastVisit: '05.10.2020'
+  }
+]
 
 // инстансы классов
 const popupForm = new Popup('.button_add', openAddUser, closeModal, addForm);
@@ -37,12 +60,18 @@ const popupEdit = new Popup('.button_edit', openEditUser, closeModal, editForm);
 const popupConfirm = new Popup('.button_delete', openDeleteUser, closeModal, confirmModal);
 
 const user = new User();
-const userTable = new UserTable(tableContainer);
+const userTable = new UserTable(tableContainer, user.create.bind(user));
 
 
 
 
-$(addBtn).on('click', () => {
-  
-  userTable.addUser(user.create(polina));
+$(addForm).on('submit', (evt) => {
+  evt.preventDefault();
+
+  // const data = $('#addUserForm').serializeArray();
+
+  // data.forEach((elem) => {
+  //   console.log(elem);
+  // });
+  userTable.downloadingUsers(users);
 })
