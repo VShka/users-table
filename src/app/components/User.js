@@ -3,6 +3,9 @@ import $ from 'jquery';
 export default class User {
   constructor(popupConfirmCloseMethod) {
     this.popupConfirmCloseMethod = popupConfirmCloseMethod;
+  
+    
+    this.confirmBtn = $('.button_confirm');
 
     this._setEventListener();
   }
@@ -35,7 +38,7 @@ export default class User {
   _removeUser(event) {
 
       let flag = false;
-      $('.button_confirm').on('click', () => {
+      $(this.confirmBtn).on('click', () => {
         flag = true;
 
         if (flag) {

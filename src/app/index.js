@@ -11,7 +11,6 @@ import User from './components/User';
 const openAddUser = $('.button_add');
 const openDeleteUser = $('.button_delete');
 const openEditUser = $('.button_edit');
-const confirmBtn = $('.button_confirm');
 //модалки
 const modalAddForm = $('#modal-form');
 const modalEditForm = $('#edit-form');
@@ -61,3 +60,5 @@ const userTable = new UserTable(tableContainer, user.createTemplate, usersList);
 
 // отрисовываем полученных пользователей при инициализации приложения
 userTable.downloadingUsers(usersList);
+
+
