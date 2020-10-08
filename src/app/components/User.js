@@ -6,7 +6,7 @@ export default class User {
   }
 
 
-  create(user) {
+  createTemplate(user) {
     
     // html разметка на pug
     const template = $(`

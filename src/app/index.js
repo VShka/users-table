@@ -15,17 +15,18 @@ const closeModal = $('.button_close');
 const addBtn = $('#add-user');
 const confirmBtn = $('.button_confirm');
 //модалки
-const addForm = $('#modal-form');
-const editForm = $('#edit-form');
+const modalAddForm = $('#modal-form');
+const modalEditForm = $('#edit-form');
 const confirmModal = $('#modal-confirm');
 // контейнер для таблицы
 const tableContainer = $('.user-table');
 
-const users = [
+
+// массив объектов юзер
+const usersList = [
   {
     name: 'Шкарупа ПН',
     birthday: '12.09.1995',
-    placeOfBirth: 'Краснодар',
     placeOfBirth: 'Краснодар',
     email: 'polina@yandex.ru',
     phone: '788989879',
@@ -36,7 +37,6 @@ const users = [
     name: 'Шкарупа ПН',
     birthday: '12.09.1995',
     placeOfBirth: 'Краснодар',
-    placeOfBirth: 'Краснодар',
     email: 'polina@yandex.ru',
     phone: '788989879',
     dateReg: Date.now(),
@@ -45,7 +45,6 @@ const users = [
   {
     name: 'Шкарупа ПН',
     birthday: '12.09.1995',
-    placeOfBirth: 'Краснодар',
     placeOfBirth: 'Краснодар',
     email: 'polina@yandex.ru',
     phone: '788989879',
@@ -55,23 +54,12 @@ const users = [
 ]
 
 // инстансы классов
-const popupForm = new Popup('.button_add', openAddUser, closeModal, addForm);
-const popupEdit = new Popup('.button_edit', openEditUser, closeModal, editForm);
+const popupForm = new Popup('.button_add', openAddUser, closeModal, modalAddForm);
+const popupEdit = new Popup('.button_edit', openEditUser, closeModal, modalEditForm);
 const popupConfirm = new Popup('.button_delete', openDeleteUser, closeModal, confirmModal);
 
 const user = new User();
-const userTable = new UserTable(tableContainer, user.create.bind(user));
+const userTable = new UserTable(tableContainer, user.createTemplate, usersList);
 
-
-
-
-$(addForm).on('submit', (evt) => {
-  evt.preventDefault();
-
-  // const data = $('#addUserForm').serializeArray();
-
-  // data.forEach((elem) => {
-  //   console.log(elem);
-  // });
-  userTable.downloadingUsers(users);
-})
+// отрисовываем полученных пользователей при инициализации приложения
+userTable.downloadingUsers(usersList);
