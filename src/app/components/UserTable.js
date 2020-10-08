@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
 export default class UserTable {
-  constructor (container, createUserMethod, usersArr) {
+  constructor (container, createUserMethod, firebase) {
     this.container = container;
     this.createUserMethod = createUserMethod;
-    this.usersArr = usersArr;
+    this.firebase = firebase;
 
     //форма добавления юзера
     this.addForm = $('#add-user-form');
@@ -35,6 +35,7 @@ export default class UserTable {
 
     // создаём новый объект юзера
     const newUser = {
+      id: Date.now(),
       name: fullName,
       birthday: birthday,
       placeOfBirth: placeOfBirth,
@@ -43,10 +44,8 @@ export default class UserTable {
       dateReg: Date.now(),
       dateLastVisit: Date.now()
     }
-
-    // пушим в массив юзеров
-    this.usersArr.push(newUser);
-
+    // отправляем в БД
+    this.firebase.downloadNewUser(newUser);
     // отрисовываем юзера в DOM
     this._renderUser(this.createUserMethod(newUser));
   }

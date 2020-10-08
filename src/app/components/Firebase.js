@@ -11,3 +11,40 @@ firebase.initializeApp({
   messagingSenderId: "1021217407977",
   appId: "1:1021217407977:web:fcb00f7ec62859050bc178"
 });
+
+export default class Firebase {
+  constructor() {
+
+  }
+
+  getAllUsers() {
+    const allUsers = firebase.database().ref(`users`);
+
+    allUsers.on('value', data => {
+      const user = data.val();
+    })
+  }
+
+  downloadNewUser(user) {
+    firebase.database().ref(`users/${user.id}`).set(user);
+  }
+
+  updateUserData() {
+
+  }
+
+  deleteUser(userId) {
+
+  }
+
+  // проверка состояния запроса
+  _checkRequest(res) {
+    if (res.ok) return res.json();
+    return Promise.reject(new Error(res.status));
+  }
+
+  // отлов ошибки
+  _catchErr(err) {
+    return Promise.reject(new Error(err.message));
+  }
+}
