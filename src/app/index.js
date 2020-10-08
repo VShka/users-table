@@ -60,5 +60,3 @@ const userTable = new UserTable(tableContainer, user.createTemplate, usersList);
 
 // отрисовываем полученных пользователей при инициализации приложения
 userTable.downloadingUsers(usersList);
-
-

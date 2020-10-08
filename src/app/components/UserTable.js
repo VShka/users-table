@@ -7,7 +7,7 @@ export default class UserTable {
     this.usersArr = usersArr;
 
     //форма добавления юзера
-    this.addForm = $('#addUserForm');
+    this.addForm = $('#add-user-form');
 
 
     this._setEventListener();
@@ -60,7 +60,7 @@ export default class UserTable {
       this._addNewUser();
       
       // очищаем форму
-      $('#addUserForm')[0].reset();
+      $('#edit-user-form')[0].reset();
     });
 
   }
