@@ -7,37 +7,40 @@ export default class Popup {
     this.closeBtn = closeBtn;
     this.modal = modal;
 
-    this._methodsInit();
+    this._setEventListener();
   }
 
   _open() {
+    $(this.modal).show();
+  }
+
+  close() {
+    $(this.modal).hide(); 
+  }
+
+  _setEventListener() {
+
     // проверка на кнопку добавления пользователя, т.к. она одна на старнице
     if ($(this.openBtn).is('.button_add')) {
       $(this.openBtn).on('click', () => {
-        $(this.modal).show();
+        this._open();
       })
     }
+
     // здесь используем делегирование, так как кнопки динамически добавляются вместе с новыми пользователями
     $('.user-table').on('click', this.btnClass, () => {
-      $(this.modal).show();
+      this._open();
     })
-  }
 
-  _close() {
     $(this.closeBtn).on('click', (evt) => {
       evt.preventDefault();
-      $(this.modal).hide();
+      this.close();
     })
 
     $(document).on('keydown', (evt) => {
       if (evt.key == "Escape") {
-        $(this.modal).hide();
+        this.close();
       }
     })
-  }
-
-  _methodsInit() {
-    this._open();
-    this._close();
   }
 }

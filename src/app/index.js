@@ -76,7 +76,7 @@ $('.user-table').on('click', '.button_delete', (event) => {
     if (flag) {
       event.target.closest('.user-table__row').remove();
 
-      popupConfirm._close();
+      popupConfirm.close();
     }
   })
 
