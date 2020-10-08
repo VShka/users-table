@@ -11,7 +11,7 @@ import User from './components/User';
 const openAddUser = $('.button_add');
 const openDeleteUser = $('.button_delete');
 const openEditUser = $('.button_edit');
-const closeModal = $('.button_close');
+
 const addBtn = $('#add-user');
 const confirmBtn = $('.button_confirm');
 //модалки
@@ -54,9 +54,9 @@ const usersList = [
 ]
 
 // инстансы классов
-const popupForm = new Popup('.button_add', openAddUser, closeModal, modalAddForm);
-const popupEdit = new Popup('.button_edit', openEditUser, closeModal, modalEditForm);
-const popupConfirm = new Popup('.button_delete', openDeleteUser, closeModal, confirmModal);
+const popupForm = new Popup('.button_add', openAddUser, modalAddForm);
+const popupEdit = new Popup('.button_edit', openEditUser, modalEditForm);
+const popupConfirm = new Popup('.button_delete', openDeleteUser, confirmModal);
 
 const user = new User();
 const userTable = new UserTable(tableContainer, user.createTemplate, usersList);
@@ -79,7 +79,5 @@ $('.user-table').on('click', '.button_delete', (event) => {
       popupConfirm.close();
     }
   })
-
-  
 })
 

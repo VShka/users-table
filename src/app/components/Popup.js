@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
 export default class Popup {
-  constructor(btnClass, openBtn, closeBtn, modal,) {
+  constructor(btnClass, openBtn, modal,) {
     this.btnClass = btnClass;
     this.openBtn = openBtn;
-    this.closeBtn = closeBtn;
+    this.closeBtn = $('.button_close');
     this.modal = modal;
 
     this._setEventListener();
