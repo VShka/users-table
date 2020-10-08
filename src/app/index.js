@@ -63,3 +63,23 @@ const userTable = new UserTable(tableContainer, user.createTemplate, usersList);
 
 // отрисовываем полученных пользователей при инициализации приложения
 userTable.downloadingUsers(usersList);
+
+
+
+// удаление юзера из DOM
+$('.user-table').on('click', '.button_delete', (event) => {
+  
+  let flag = false;
+  $('.button_confirm').on('click', () => {
+    flag = true;
+
+    if (flag) {
+      event.target.closest('.user-table__row').remove();
+
+      popupConfirm._close();
+    }
+  })
+
+  
+})
+
