@@ -1,8 +1,10 @@
 import $ from 'jquery';
 
 export default class User {
-  constructor() {
+  constructor(popupConfirmCloseMethod) {
+    this.popupConfirmCloseMethod = popupConfirmCloseMethod;
 
+    this._setEventListener();
   }
 
 
@@ -28,5 +30,24 @@ export default class User {
     `)
 
     return template;
+  }
+
+  _removeUser(event) {
+
+      let flag = false;
+      $('.button_confirm').on('click', () => {
+        flag = true;
+
+        if (flag) {
+          event.target.closest('.user-table__row').remove();
+          this.popupConfirmCloseMethod();
+        }
+      })
+  }
+
+  _setEventListener() {
+    $('.user-table').on('click', '.button_delete', (event) => {
+      this._removeUser(event)
+    });
   }
 }
