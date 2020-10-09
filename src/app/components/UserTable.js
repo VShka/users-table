@@ -18,8 +18,8 @@ export default class UserTable {
   }
 
   downloadingUsers(arrUsers) {
-    arrUsers.forEach(template => {
-      this._renderUser(this.createUserMethod(template));
+    arrUsers.forEach(user => {
+      this._renderUser(this.createUserMethod(user));
     })
   }
 

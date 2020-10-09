@@ -29,6 +29,7 @@ const firebase = new Firebase();
 const user = new User(popupConfirm.close.bind(popupConfirm));
 const userTable = new UserTable(tableContainer, user.createTemplate, firebase);
 
-firebase.getAllUsers();
+
 // отрисовываем полученных пользователей при инициализации приложения
-// userTable.downloadingUsers(usersList);
+// userTable.downloadingUsers();
+

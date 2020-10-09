@@ -18,11 +18,9 @@ export default class Firebase {
   }
 
   getAllUsers() {
-    const allUsers = firebase.database().ref(`users`);
-
-    allUsers.on('value', data => {
-      const user = data.val();
-    })
+    firebase.database().ref(`users`).on('value', data => {
+      const arr = Object.values(data.val());
+    });
   }
 
   downloadNewUser(user) {
@@ -35,16 +33,5 @@ export default class Firebase {
 
   deleteUser(userId) {
 
-  }
-
-  // проверка состояния запроса
-  _checkRequest(res) {
-    if (res.ok) return res.json();
-    return Promise.reject(new Error(res.status));
-  }
-
-  // отлов ошибки
-  _catchErr(err) {
-    return Promise.reject(new Error(err.message));
   }
 }
