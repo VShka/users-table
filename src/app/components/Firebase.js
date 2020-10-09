@@ -18,9 +18,7 @@ export default class Firebase {
   }
 
   getAllUsers() {
-    firebase.database().ref(`users`).on('value', data => {
-      const arr = Object.values(data.val());
-    });
+    return firebase.database().ref(`users`);
   }
 
   downloadNewUser(user) {

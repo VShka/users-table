@@ -17,9 +17,11 @@ export default class UserTable {
     $(this.container).append(userTemplate);
   }
 
-  downloadingUsers(arrUsers) {
-    arrUsers.forEach(user => {
-      this._renderUser(this.createUserMethod(user));
+  downloadingUsers() {
+    this.firebase.getAllUsers().once('value').then(data => {
+      data.forEach(user => {
+          this._renderUser(this.createUserMethod(user.val()));
+      })
     })
   }
 

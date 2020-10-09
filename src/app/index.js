@@ -31,5 +31,6 @@ const userTable = new UserTable(tableContainer, user.createTemplate, firebase);
 
 
 // отрисовываем полученных пользователей при инициализации приложения
-// userTable.downloadingUsers();
+userTable.downloadingUsers();
+// firebase.getAllUsers();
 
