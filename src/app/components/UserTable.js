@@ -18,9 +18,13 @@ export default class UserTable {
   }
 
   downloadingUsers() {
-    this.firebase.getAllUsers().once('value').then(data => {
-      data.forEach(user => {
-          this._renderUser(this.createUserMethod(user.val()));
+    this.firebase
+    .getAllUsers()
+    .then(data => {
+      // преобразование слепка в массив объектов
+      const usersArr = Object.values(data.val());
+      usersArr.forEach(user => {
+        this._renderUser(this.createUserMethod(user));
       })
     })
   }

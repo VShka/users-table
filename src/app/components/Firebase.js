@@ -18,7 +18,8 @@ export default class Firebase {
   }
 
   getAllUsers() {
-    return firebase.database().ref(`users`);
+    //возвращаем слепок БД
+    return firebase.database().ref(`users`).once('value');
   }
 
   downloadNewUser(user) {
