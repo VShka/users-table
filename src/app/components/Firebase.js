@@ -31,6 +31,6 @@ export default class Firebase {
   }
 
   deleteUser(userId) {
-
+    firebase.database().ref(`users/${userId}`).remove();
   }
 }
