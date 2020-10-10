@@ -32,13 +32,13 @@ export default class Popup {
       this._open();
     })
 
-    $(this.closeBtn).on('click', (evt) => {
-      evt.preventDefault();
+    $(this.closeBtn).on('click', (event) => {
+      event.preventDefault();
       this.close();
     })
 
-    $(document).on('keydown', (evt) => {
-      if (evt.key == "Escape") {
+    $(document).on('keydown', (event) => {
+      if (event.key == "Escape") {
         this.close();
       }
     })

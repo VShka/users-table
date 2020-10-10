@@ -1,9 +1,9 @@
 import $ from 'jquery';
 
 export default class User {
-  constructor(popupConfirmCloseMethod) {
+  constructor(popupConfirmCloseMethod, firebase) {
     this.popupConfirmCloseMethod = popupConfirmCloseMethod;
-  
+    this.firebase = firebase;
     
     this.confirmBtn = $('.button_confirm');
 
@@ -15,7 +15,7 @@ export default class User {
     
     // html разметка на pug
     const template = $(`
-      <div class="user-table__row">
+      <div class="user-table__row" data-userid="${user.id}">
         <p class="user-table__item">${user.name}</p>
         <p class="user-table__item">${user.birthday}</p>
         <p class="user-table__item">${user.placeOfBirth}</p>
@@ -36,21 +36,27 @@ export default class User {
   }
 
   _removeUser(event) {
+    // получаем елемент строки текущего юзера
+    const element = event.target.closest('.user-table__row');
+    // получаем ID юзера, присвоенный при создании в data-аргумент
+    const currentUserID = element.getAttribute('data-userid');
 
-      let flag = false;
-      $(this.confirmBtn).on('click', () => {
-        flag = true;
 
-        if (flag) {
-          event.target.closest('.user-table__row').remove();
-          this.popupConfirmCloseMethod();
-        }
-      })
+    // проблема => навешивание обработчика каждый раз при открытии модалки, что приводит к двойному
+    // (тройному и т.д.) срабатыванию.
+    $(this.confirmBtn).on('click', () => {
+      // удаляем юзера из БД по ID
+      this.firebase.deleteUser(currentUserID);
+      // удаляем из DOM
+      element.remove();
+      this.popupConfirmCloseMethod();
+    })
+      
   }
 
   _setEventListener() {
     $('.user-table').on('click', '.button_delete', (event) => {
-      this._removeUser(event)
-    });
+      this._removeUser(event);
+    }); 
   }
 }
