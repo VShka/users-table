@@ -13,17 +13,16 @@ export default class User {
 
   createTemplate(user) {
     
-    // html разметка на pug
     const template = $(`
       <div class="user-table__row" data-userid="${user.id}">
-        <p class="user-table__item">${user.name}</p>
-        <p class="user-table__item">${user.birthday}</p>
-        <p class="user-table__item">${user.placeOfBirth}</p>
-        <p class="user-table__item">${user.email}</p>
-        <p class="user-table__item">${user.phone}</p>
-        <p class="user-table__item">${user.dateReg}</p>
-        <p class="user-table__item">${user.dateLastVisit}</p>
-        <p class="user-table__item">
+        <p class="user-table__item name">${user.name}</p>
+        <p class="user-table__item birthday">${user.birthday}</p>
+        <p class="user-table__item place-birth">${user.placeOfBirth}</p>
+        <p class="user-table__item email">${user.email}</p>
+        <p class="user-table__item phone">${user.phone}</p>
+        <p class="user-table__item ">${user.dateReg}</p>
+        <p class="user-table__item last-visit">${user.dateLastVisit}</p>
+        <p class="user-table__item ">
           <button class="button button_edit">Редактировать</button>
         </p>
         <p class="user-table__item">
