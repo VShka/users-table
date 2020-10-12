@@ -1,0 +1,20 @@
+.form-container {
+  position: relative;
+  max-width: 25%;
+  min-height: 300px;
+  background-color: rgba(37, 47, 72, 0.8);
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  border-radius: 20px;
+  margin: 50px auto 0;
+  padding: 3rem 0;
+
+  &:hover {
+    box-shadow: 0 0 10px rgb(56, 174, 221);
+  }
+
+  svg {
+    width: 1.75em;
+    height: 1.75em;
+  }
+}

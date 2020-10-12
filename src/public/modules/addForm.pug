@@ -1,6 +1,6 @@
 transition.modal-fade
   #modal-form.modal-mask
-    form#add-user-form.form
+    .form-container
       button.button_close
         svg(viewBox="0 0 15 20")
           path(
@@ -12,9 +12,10 @@ transition.modal-fade
             0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,
             0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z`
           )
-      input.form__item(name="fullName" type="text" placeholder="Петров ВС")
-      input.form__item(name="birthday" type="text" placeholder="Дата рождения")
-      input.form__item(name="placeOfBirth" type="text" placeholder="Место рождения")
-      input.form__item(name="email" type="text" placeholder="Email")
-      input.form__item(name="phone" type="text" placeholder="Номер телефона")
-      input#add-user.form__item.form__item_add(type="submit" value="+")
+      form#add-user-form.form
+        input.form__item(name="fullName" type="text" placeholder="Петров ВС" pattern="(^[А-ЯЁ])([а-яё]*) ([А-Я]{2})$" required)
+        input.form__item(name="birthday" type="text" placeholder="Дата рождения")
+        input.form__item(name="placeOfBirth" type="text" placeholder="Место рождения")
+        input.form__item(name="email" type="text" placeholder="Email" pattern="^([a-zA-Z0-9][-._]?)+@([a-zA-Z0-9][-_]?)+(\.[a-z]{1,})+" required)
+        input.form__item(name="phone" type="text" placeholder="Тел.: +7 999 999 99 99" required)
+        input#add-user.form__item.form__item_add(type="submit" value="+")
