@@ -64,8 +64,8 @@ export default class UserTable {
 
       this._addNewUser();
       
-      // очищаем форму
-      $('#edit-user-form')[0].reset();
+      // очищаем форму(переделать)
+      document.querySelector('#add-user-form').reset();
     });
 
   }
