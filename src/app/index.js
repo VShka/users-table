@@ -59,23 +59,24 @@ $('.user-table').on('click', '.button_edit', event => {
   phoneInput.value = phone.textContent;
 })
 
-// $(confirmBtn).on('click', () => {
-//   // поля формы редактирования
-//   const [nameInput, dateInput, placeInput, emailInput, phoneInput] = editUserInfoForm.elements;
+$(confirmBtn).on('click', () => {
+  // поля формы редактирования
+  const [nameInput, dateInput, placeInput, emailInput, phoneInput] = editUserInfoForm.elements;
 
-//   // поля персональных данных пользователя
-//   const userName = element.querySelector('.name');
-//   const birthday = element.querySelector('.birthday');
-//   const placeOfBirth = element.querySelector('.place-birth');
-//   const email = element.querySelector('.email');
-//   const phone = element.querySelector('.phone');
-//   const lastVisit = element.querySelector('.last-visit');
+  // поля персональных данных пользователя
+  const userName = element.querySelector('.name');
+  const birthday = element.querySelector('.birthday');
+  const placeOfBirth = element.querySelector('.place-birth');
+  const email = element.querySelector('.email');
+  const phone = element.querySelector('.phone');
+  const lastVisit = element.querySelector('.last-visit');
 
-//   // подставляем измененные данные в поля о пользователе
-//   userName.textContent = nameInput.value;
-//   birthday.textContent = dateInput.value;
-//   placeOfBirth.textContent = placeInput.value;
-//   email.textContent = emailInput.value;
-//   phone.textContent = phoneInput.value;
-//   lastVisit.textContent = Date.now();
-// })
+  // подставляем измененные данные в поля о пользователе
+  userName.textContent = nameInput.value;
+  birthday.textContent = dateInput.value;
+  placeOfBirth.textContent = placeInput.value;
+  email.textContent = emailInput.value;
+  phone.textContent = phoneInput.value;
+  lastVisit.textContent = Date.now();
+})
+
