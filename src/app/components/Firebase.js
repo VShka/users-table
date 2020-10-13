@@ -27,7 +27,7 @@ export default class Firebase {
   }
 
   updateUserData(userId) {
-    firebase.database().ref(`users/${user.id}`).set(user);
+    return firebase.database().ref(`users/${userId}`);
   }
 
   deleteUser(userId) {

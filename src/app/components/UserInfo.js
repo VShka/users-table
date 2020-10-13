@@ -33,6 +33,8 @@ export default class UserInfo{
   }
 
   _updateInfo(element) {
+    // наш текущий пользователь
+    const currentUserId = element.getAttribute('data-userid');
     // поля персональных данных пользователя
     const userName = element.querySelector('.name');
     const birthday = element.querySelector('.birthday');
@@ -41,6 +43,16 @@ export default class UserInfo{
     const phone = element.querySelector('.phone');
     const lastVisit = element.querySelector('.last-visit');
   
+    // отправка изменённых данных в БД
+    this.firebase.updateUserData(currentUserId).update({
+      name: this.nameInput.value,
+      birthday: this.dateInput.value,
+      placeOfBirth: this.placeInput.value,
+      email: this.emailInput.value,
+      phone: this.phoneInput.value,
+      dateLastVisit: Date.now()
+    })
+
     // подставляем измененные данные в поля о пользователе
     userName.textContent = this.nameInput.value;
     birthday.textContent = this.dateInput.value;
@@ -48,14 +60,6 @@ export default class UserInfo{
     email.textContent = this.emailInput.value;
     phone.textContent = this.phoneInput.value;
     lastVisit.textContent = Date.now();
-
-
-    // отправка изменённых данных в БД
-    // this.firebase.updateUserData().then(data => {
-    //   const user = data.val();
-
-    //   user.fullName = this.nameInput.value;
-    // })
   }
 
   _setEventListener() {
