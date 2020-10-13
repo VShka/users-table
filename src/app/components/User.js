@@ -5,7 +5,7 @@ export default class User {
     this.popupConfirmCloseMethod = popupConfirmCloseMethod;
     this.firebase = firebase;
     
-    this.confirmBtn = $('.button_confirm');
+    this.confirmDeleteBtn = document.querySelector('.button_confirm');
 
     this._setEventListener();
   }
@@ -40,16 +40,14 @@ export default class User {
     // получаем ID юзера, присвоенный при создании в data-аргумент
     const currentUserID = element.getAttribute('data-userid');
 
-
-    // проблема => навешивание обработчика каждый раз при открытии модалки, что приводит к двойному
-    // (тройному и т.д.) срабатыванию.
-    $(this.confirmBtn).on('click', () => {
+    // при подтверждении делаем удаление пользователя
+    this.confirmDeleteBtn.onclick = () => {
       // удаляем юзера из БД по ID
       this.firebase.deleteUser(currentUserID);
       // удаляем из DOM
       element.remove();
       this.popupConfirmCloseMethod();
-    })
+    }
       
   }
 

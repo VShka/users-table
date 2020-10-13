@@ -41,11 +41,10 @@ const userInfo = new UserInfo({
   emailInput,
   phoneInput,
   confirmBtn,
-  tableContainer
+  tableContainer,
+  firebase
 });
 
 
 // отрисовываем полученных пользователей при инициализации приложения
 userTable.downloadingUsers();
-
-

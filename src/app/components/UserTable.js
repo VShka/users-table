@@ -59,8 +59,8 @@ export default class UserTable {
   _setEventListener() {
 
     // добавление нового юзера 
-    $(this.addForm).on('submit', (evt) => {
-      evt.preventDefault();
+    $(this.addForm).on('submit', (event) => {
+      event.preventDefault();
 
       this._addNewUser();
       

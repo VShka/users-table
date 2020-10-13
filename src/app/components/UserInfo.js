@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default class UserInfo{
-  constructor({nameInput, dateInput, placeInput, emailInput, phoneInput, confirmBtn, tableContainer}) {
+  constructor({nameInput, dateInput, placeInput, emailInput, phoneInput, confirmBtn, tableContainer, firebase}) {
     this.nameInput = nameInput;
     this.dateInput = dateInput;
     this.placeInput = placeInput;
@@ -9,6 +9,8 @@ export default class UserInfo{
     this.phoneInput = phoneInput;
     this.confirmBtn = confirmBtn;
     this.tableContainer = tableContainer;
+
+    this.firebase = firebase;
 
     this._setEventListener();
   }
@@ -46,6 +48,14 @@ export default class UserInfo{
     email.textContent = this.emailInput.value;
     phone.textContent = this.phoneInput.value;
     lastVisit.textContent = Date.now();
+
+
+    // отправка изменённых данных в БД
+    // this.firebase.updateUserData().then(data => {
+    //   const user = data.val();
+
+    //   user.fullName = this.nameInput.value;
+    // })
   }
 
   _setEventListener() {
