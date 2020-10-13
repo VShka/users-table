@@ -2,4 +2,12 @@
   color: rgb(237, 183, 73);
   padding: 15px 0px;
   margin: 0;
+
+  &:first-child{
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(221, 144, 144);
+    }
+  }
 }
