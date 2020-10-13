@@ -2,6 +2,7 @@ import '../styles/style.scss';
 
 import $ from 'jquery';
 import today from './constants/today'; // константа для форматирования даты в понятный формат
+import sortByName from './utils/sortByName';
 
 import Popup from './components/Popup';
 import Firebase from './components/Firebase';
@@ -39,7 +40,8 @@ const userTable = new UserTable(
   user.createTemplate,
   popupConfirm.close.bind(popupConfirm),
   firebase,
-  today
+  today,
+  sortByName
 );
 const userInfo = new UserInfo({
   nameInput,

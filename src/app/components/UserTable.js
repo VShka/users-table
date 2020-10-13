@@ -1,16 +1,20 @@
 import $ from 'jquery';
 
 export default class UserTable {
-  constructor (container, createUserMethod, popupConfirmCloseMethod, firebase, today) {
+  constructor (container, createUserMethod, popupConfirmCloseMethod, firebase, today, sortMethod) {
     this.container = container;
     this.createUserMethod = createUserMethod;
     this.popupConfirmCloseMethod = popupConfirmCloseMethod;
     this.confirmDeleteBtn = document.querySelector('.button_confirm');
     this.firebase = firebase;
     this.today = today;
+    this.sortMethod = sortMethod;
 
     //форма добавления юзера
     this.addForm = $('#add-user-form');
+
+    // первый заголовок таблицы
+    this.tableTitle = $('.user-table__title');
 
 
     this._setEventListener();
@@ -26,8 +30,9 @@ export default class UserTable {
     .getAllUsers()
     .then(data => {
       // преобразование слепка в массив объектов
-      const usersArr = Object.values(data.val());
-      usersArr.forEach(user => {
+      this.usersArr = Object.values(data.val());
+      // перебор и отрисовка
+      this.usersArr.forEach(user => {
         this._renderUser(this.createUserMethod(user));
       })
     })
@@ -51,7 +56,7 @@ export default class UserTable {
       email: email,
       phone: phone,
       dateReg: this.today,
-      dateLastVisit: null
+      dateLastVisit: this.today
     }
     // отправляем в БД
     this.firebase.downloadNewUser(newUser);
@@ -72,8 +77,26 @@ export default class UserTable {
       // удаляем из DOM
       element.remove();
       this.popupConfirmCloseMethod();
-    }
-      
+    } 
+  }
+
+  // сортировка
+  _sortUserTable() {
+    // очищаем список пользователей
+    $(this.container).children().slice(1).remove();
+    // снова получаем список пользователей, вдруг кого-то добавили перед сортировкой
+    this.firebase
+    .getAllUsers()
+    .then(data => {
+      // преобразование слепка в массив объектов
+      this.usersArr = Object.values(data.val());
+      // сортируем
+      this.usersArr.sort(this.sortMethod);
+      // перебор и отрисовка
+      this.usersArr.forEach(user => {
+        this._renderUser(this.createUserMethod(user));
+      })
+    })
   }
 
   _setEventListener() {
@@ -84,10 +107,15 @@ export default class UserTable {
       // очищаем форму(переделать)
       document.querySelector('#add-user-form').reset();
     });
+
     // удаление пользователя
     $(this.container).on('click', '.button_delete', (event) => {
       this._removeUser(event);
-    }); 
+    });
 
+    // сортировка
+    $(this.tableTitle).on('click', () => {
+      this._sortUserTable()
+    });
   }
 }
