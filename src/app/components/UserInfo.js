@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export default class UserInfo{
-  constructor({nameInput, dateInput, placeInput, emailInput, phoneInput, confirmBtn, tableContainer, firebase}) {
+  constructor({nameInput, dateInput, placeInput, emailInput, phoneInput, confirmBtn, tableContainer, firebase, today}) {
     this.nameInput = nameInput;
     this.dateInput = dateInput;
     this.placeInput = placeInput;
@@ -11,6 +11,7 @@ export default class UserInfo{
     this.tableContainer = tableContainer;
 
     this.firebase = firebase;
+    this.today = today;
 
     this._setEventListener();
   }
@@ -50,7 +51,7 @@ export default class UserInfo{
       placeOfBirth: this.placeInput.value,
       email: this.emailInput.value,
       phone: this.phoneInput.value,
-      dateLastVisit: Date.now()
+      dateLastVisit: this.today
     })
 
     // подставляем измененные данные в поля о пользователе

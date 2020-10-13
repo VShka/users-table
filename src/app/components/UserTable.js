@@ -1,12 +1,13 @@
 import $ from 'jquery';
 
 export default class UserTable {
-  constructor (container, createUserMethod, popupConfirmCloseMethod, firebase) {
+  constructor (container, createUserMethod, popupConfirmCloseMethod, firebase, today) {
     this.container = container;
     this.createUserMethod = createUserMethod;
     this.popupConfirmCloseMethod = popupConfirmCloseMethod;
     this.confirmDeleteBtn = document.querySelector('.button_confirm');
     this.firebase = firebase;
+    this.today = today;
 
     //форма добавления юзера
     this.addForm = $('#add-user-form');
@@ -49,8 +50,8 @@ export default class UserTable {
       placeOfBirth: placeOfBirth,
       email: email,
       phone: phone,
-      dateReg: Date.now(),
-      dateLastVisit: Date.now()
+      dateReg: this.today,
+      dateLastVisit: null
     }
     // отправляем в БД
     this.firebase.downloadNewUser(newUser);
