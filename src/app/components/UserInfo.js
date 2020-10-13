@@ -60,7 +60,7 @@ export default class UserInfo{
     placeOfBirth.textContent = this.placeInput.value;
     email.textContent = this.emailInput.value;
     phone.textContent = this.phoneInput.value;
-    lastVisit.textContent = Date.now();
+    lastVisit.textContent = this.today;
   }
 
   _setEventListener() {
