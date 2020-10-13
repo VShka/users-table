@@ -39,39 +39,13 @@ const userInfo = new UserInfo({
   dateInput,
   placeInput,
   emailInput,
-  phoneInput
+  phoneInput,
+  confirmBtn,
+  tableContainer
 });
 
 
 // отрисовываем полученных пользователей при инициализации приложения
 userTable.downloadingUsers();
-
-// выбирает пользователя по которому кликнули
-$('.user-table').on('click', '.button_edit', event => {
-  // устанавливаем текущие значения в форму
-  userInfo.setCurrentInfo(event);
-
-  $(confirmBtn).on('click', () => {
-    // поля формы редактирования
-    const [nameInput, dateInput, placeInput, emailInput, phoneInput] = editUserInfoForm.elements;
-  
-    // поля персональных данных пользователя
-    const userName = element.querySelector('.name');
-    const birthday = element.querySelector('.birthday');
-    const placeOfBirth = element.querySelector('.place-birth');
-    const email = element.querySelector('.email');
-    const phone = element.querySelector('.phone');
-    const lastVisit = element.querySelector('.last-visit');
-  
-    // подставляем измененные данные в поля о пользователе
-    userName.textContent = nameInput.value;
-    birthday.textContent = dateInput.value;
-    placeOfBirth.textContent = placeInput.value;
-    email.textContent = emailInput.value;
-    phone.textContent = phoneInput.value;
-    lastVisit.textContent = Date.now();
-  })
-})
-
 
 
