@@ -32,8 +32,13 @@ const popupEdit = new Popup('.button_edit', openEditUser, modalEditForm);
 const popupConfirm = new Popup('.button_delete', openDeleteUser, confirmModal);
 
 const firebase = new Firebase();
-const user = new User(popupConfirm.close.bind(popupConfirm), firebase);
-const userTable = new UserTable(tableContainer, user.createTemplate, firebase);
+const user = new User();
+const userTable = new UserTable(
+  tableContainer,
+  user.createTemplate,
+  popupConfirm.close.bind(popupConfirm),
+  firebase
+);
 const userInfo = new UserInfo({
   nameInput,
   dateInput,

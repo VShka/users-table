@@ -1,9 +1,11 @@
 import $ from 'jquery';
 
 export default class UserTable {
-  constructor (container, createUserMethod, firebase) {
+  constructor (container, createUserMethod, popupConfirmCloseMethod, firebase) {
     this.container = container;
     this.createUserMethod = createUserMethod;
+    this.popupConfirmCloseMethod = popupConfirmCloseMethod;
+    this.confirmDeleteBtn = document.querySelector('.button_confirm');
     this.firebase = firebase;
 
     //форма добавления юзера
@@ -13,6 +15,7 @@ export default class UserTable {
     this._setEventListener();
   }
 
+  //метод отрисовки в DOM
   _renderUser(userTemplate) {
     $(this.container).append(userTemplate);
   }
@@ -30,7 +33,6 @@ export default class UserTable {
   }
 
   _addNewUser() {
-
     // находим все поля формы
     // прописал в таком виде, чтобы было максимально очевидно
     const fullName = $('input[name="fullName"]').val();
@@ -56,17 +58,35 @@ export default class UserTable {
     this._renderUser(this.createUserMethod(newUser));
   }
 
-  _setEventListener() {
+  _removeUser(event) {
+    // получаем елемент строки текущего юзера
+    const element = event.target.closest('.user-table__row');
+    // получаем ID юзера, присвоенный при создании в data-аргумент
+    const currentUserID = element.getAttribute('data-userid');
 
-    // добавление нового юзера 
+    // при подтверждении делаем удаление пользователя
+    this.confirmDeleteBtn.onclick = () => {
+      // удаляем юзера из БД по ID
+      this.firebase.deleteUser(currentUserID);
+      // удаляем из DOM
+      element.remove();
+      this.popupConfirmCloseMethod();
+    }
+      
+  }
+
+  _setEventListener() {
+    // добавление нового пользователя 
     $(this.addForm).on('submit', (event) => {
       event.preventDefault();
-
       this._addNewUser();
-      
       // очищаем форму(переделать)
       document.querySelector('#add-user-form').reset();
     });
+    // удаление пользователя
+    $(this.container).on('click', '.button_delete', (event) => {
+      this._removeUser(event);
+    }); 
 
   }
 }
