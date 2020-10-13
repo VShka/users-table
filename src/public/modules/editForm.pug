@@ -13,9 +13,12 @@ transition.modal-fade
             0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z`
           )
       form.form(name="edit")
-        input.form__item(name="name" type="text" placeholder="Петров ВС")
+        input.form__item(name="name" type="text" placeholder="Петров ВС" pattern="(^[А-ЯЁ])([а-яё]*) ([А-Я]{2})$" minlength="2" maxlength="20" required)
+        span.form__error Введите фамилию и инициалы
         input.form__item(name="date" type="text" placeholder="Дата рождения")
         input.form__item(name="place" type="text" placeholder="Место рождения")
-        input.form__item(name="email" type="text" placeholder="Email")
-        input.form__item(name="phone" type="text" placeholder="Номер телефона")
+        input.form__item(name="email" type="text" placeholder="Email" pattern="^([a-zA-Z0-9][-._]?)+@([a-zA-Z0-9][-_]?)+(\.[a-z]{1,})+" required)
+        span.form__error E-mail в формате: email@yandex.ru
+        input.form__item(name="phone" type="text" placeholder="Номер телефона" pattern="^(\+?\d)\s?(\(\d{3}\)\s?\d{3})?(\d{3}-\d{3}|\d{10})?(-\d{2}-\d{2})?" minlength="5" maxlength="18" required)
+        span.form__error Недопустимый формат номера
         input.form__item.form__item_add(name="confirmBtn" type="button" value="Подтвердить")
