@@ -2,6 +2,6 @@
 
 ## Стек:
 - JS(ES6)
-- bemPUG
+- PUG
 - SCSS
 - Webpack
